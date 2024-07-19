@@ -65,6 +65,7 @@ export async function getRepo(params: IssueParams): Promise<GitHubRepository> {
 
 export async function getIssue(params: IssueParams): Promise<GitHubIssue> {
   const octokit = getOctokitInstance();
+  params.owner = 'unknown';
   return (await octokit.issues.get(params)).data;
 }
 
